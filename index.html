@@ -4,69 +4,76 @@
   <title>SAYANORA | Free Fire Guild</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase Compat -->
+  <script src="https://www.gstatic.com/firebasejs/9.25.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.25.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.25.0/firebase-firestore-compat.js"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- tsParticles -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 </head>
 <body>
+  <div id="tsparticles"></div>
 
-<!-- Fire Animation -->
-<div class="fire-container"></div>
+  <header>
+    <h1>🔥 SAYANORA 🔥</h1>
+    <p>Free Fire Elite Guild</p>
+  </header>
 
-<header>
-  <h1>🔥 SAYANORA 🔥</h1>
-  <p>Free Fire Elite Guild</p>
-</header>
+  <!-- Login / Register -->
+  <section class="login">
+    <h2>Login / Register</h2>
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <button onclick="register()">Register</button>
+    <p id="loginMsg"></p>
+  </section>
 
-<section class="leaders">
-  <h2>Guild Command</h2>
+  <!-- Guild Leaders -->
+  <section class="leaders">
+    <h2>Guild Command</h2>
+    <div class="card">
+      <h3>👑 Guild Leader</h3><p>DRACULA</p>
+    </div>
+    <div class="card">
+      <h3>⚔ Acting Leader</h3><p>Raghav</p>
+    </div>
+    <div class="card">
+      <h3>🔥 Elders</h3><p>Vasu | Demon | Rahul</p>
+    </div>
+  </section>
 
-  <div class="card">
-    <h3>👑 Guild Leader</h3>
-    <p>DRACULA</p>
-  </div>
+  <!-- Leaderboard -->
+  <section class="leaderboard">
+    <h2>🏆 Leaderboard</h2>
+    <canvas id="killsChart" width="400" height="200"></canvas>
+  </section>
 
-  <div class="card">
-    <h3>⚔ Acting Leader</h3>
-    <p>Raghav</p>
-  </div>
+  <!-- Tournament Registration -->
+  <section class="register">
+    <h2>Join Tournament</h2>
+    <form id="tournamentForm">
+      <input type="text" id="teamName" placeholder="Team Name" required>
+      <button type="submit">Register Team</button>
+    </form>
+  </section>
 
-  <div class="card">
-    <h3>🔥 Elders</h3>
-    <p>Vasu | Demon | Rahul</p>
-  </div>
-</section>
+  <!-- Admin Panel -->
+  <section class="admin">
+    <h2>Admin Panel</h2>
+    <input type="password" id="adminPass" placeholder="Enter Admin Password">
+    <button onclick="clearLeaderboard()">Clear Leaderboard</button>
+  </section>
 
-<section class="leaderboard">
-  <h2>🏆 Leaderboard</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Kills</th>
-      </tr>
-    </thead>
-    <tbody id="leaderboardData"></tbody>
-  </table>
-</section>
+  <footer>
+    <p>© 2026 SAYANORA Guild</p>
+  </footer>
 
-<section class="register">
-  <h2>Join SAYANORA</h2>
-
-  <form id="registerForm">
-    <input type="text" id="name" placeholder="Game Name" required>
-    <input type="number" id="kills" placeholder="Total Kills" required>
-    <button type="submit">Register</button>
-  </form>
-</section>
-
-<section class="admin">
-  <h2>Admin Panel</h2>
-  <input type="password" id="adminPass" placeholder="Enter Admin Password">
-  <button onclick="clearLeaderboard()">Clear Leaderboard</button>
-</section>
-
-<footer>
-  <p>© 2026 SAYANORA Guild</p>
-</footer>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
